@@ -2,26 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@layer components {
+    .card {
+        @apply rounded-lg shadow border bg-white aria-[invalid=true]:border-red-600;
+    }
+    .input {
+        @apply outline-none border rounded h-10 w-full px-4;
+    }
+    .label {
+        @apply text-gray-600;
+    }
+    .info-message {
+        @apply text-sm text-blue-600;
+    }
+    .error-message {
+        @apply text-sm text-red-600;
+    }
+    .success-message {
+        @apply text-sm text-green-600;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f7f7;
+    letter-spacing: 0.05em;
+}
+
+pre {
+    font-family: var(--font-pretendard);
+}
+
+.container {
+    max-width: 90rem;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #9ca3afaa;
+    border-radius: 4px;
+}
+
+@media (max-width: 1440px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    html {
+        font-size: 10px;
+    }
 }
